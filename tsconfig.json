@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "typeRoots": [
+            "src/types" // 指定 d.ts 文件的位置，根据具体情况修改
+        ],
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "noImplicitAny": false,// 不加这个any 报错
+        "jsx": "react",
+        "baseUrl": ".",
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "./node_modules"
+    ]
+}
