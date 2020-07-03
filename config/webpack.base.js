@@ -2,8 +2,8 @@
  * @Autor: duyuanli
  * @Date: 2020-07-03 10:02:22
  * @LastEditors: duyuanli
- * @LastEditTime: 2020-07-03 11:48:29
- */ 
+ * @LastEditTime: 2020-07-03 15:09:31
+ */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const config = require("./config");
@@ -14,14 +14,14 @@ const merge = require('webpack-merge');
 const bundleAnalyzerReport = argv.report; // 根据命令参数是否含有 'report' 来决定是否生成报告
 // 这个配置将合并到最后的配置中
 const webpackConfig = {
-  plugins: []
+    plugins: []
 };
 if (bundleAnalyzerReport) {
-  webpackConfig.plugins.push(new BundleAnalyzerPlugin({
-    analyzerMode: 'static',
-    openAnalyzer: false,
-    reportFilename: path.join(config.assetsRoot, './report.html')
-  }));
+    webpackConfig.plugins.push(new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false,
+        reportFilename: path.join(config.assetsRoot, './report.html')
+    }));
 }
 
 module.exports = merge(webpackConfig, {
@@ -29,7 +29,6 @@ module.exports = merge(webpackConfig, {
         app: "./src/index.tsx"
     },
     output: {
-        filename: '[name].bundle.js',
         path: config.assetsRoot,
         publicPath: '/'
     },
@@ -55,10 +54,18 @@ module.exports = merge(webpackConfig, {
                         ]
                     },
                     {
-                        test: /\.(css|sass)$/,
+                        test: /\.(css|scss)$/,
                         use: [
                             "style-loader",
-                            "css-loader",
+                            {
+                                loader: "css-loader",
+                                options: {
+                                    modules: false
+                                }
+                            },
+                            {
+                                loader: "postcss-loader"
+                            },
                             "sass-loader"
                         ]
                     }

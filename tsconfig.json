@@ -10,7 +10,9 @@
             "src/types" // 指定 d.ts 文件的位置，根据具体情况修改
         ],
         "paths": {
-            "@/*": ["src/*"]
+            "@/*": [
+                "src/*"
+            ]
         },
         "allowJs": true,
         "skipLibCheck": true,
@@ -24,7 +26,7 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
-        "noImplicitAny": false,// 不加这个any 报错
+        "noImplicitAny": false, // 不加这个any 报错
         "jsx": "react",
         "baseUrl": ".",
     },
